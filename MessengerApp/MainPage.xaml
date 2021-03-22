@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MessengerApp.MainPage">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Back" IsEnabled="False" HorizontalOptions="StartAndExpand"/>
+            <Button Text="Home" IsEnabled="False"/>
+            <Button Text="Profile" IsEnabled="False" HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <Label Text="Meno:"/>
+            <Entry HorizontalOptions="FillAndExpand" x:Name="meno"/>
+        </StackLayout>
+        <Frame BorderColor="Black" Margin="10" HeightRequest="360">
+            <ListView x:Name="MyListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <Label Text="{Binding message}" FontSize="Small"/>
+                                <Label Text="{Binding name}" FontSize="Micro"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <Label Text=">"/>
+            <Entry HorizontalOptions="FillAndExpand" x:Name="text"/>
+        </StackLayout>
+        <Button x:Name="Send" Text="Send" IsEnabled="True"/>
+    </StackLayout>
+
+
+</ContentPage>
