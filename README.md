@@ -1,6 +1,6 @@
 # MessengerApp-Xamarin-
 
-This app is 
+This app features are:
 
 >Sending messages:  
 > * [x] In main chat  
