@@ -30,6 +30,11 @@ namespace MessengerApp
                 OnAppearing();
                 text.Text = null;
             };
+            Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+            {
+                OnAppearing();
+                return true;
+            });
         }
 
         protected override async void OnAppearing()
