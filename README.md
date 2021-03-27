@@ -1,11 +1,11 @@
 # MessengerApp-Xamarin-
 
-This app is 
+This app features are:
 
 >Sending messages:  
-> [x] In main chat  
-> [x] Custom messages  
-> [x] Custom name  
-> [ ] Private messages   
-> [ ] Authentification  
-> [ ] Image sending  
+> * [x] In main chat  
+> * [x] Custom messages  
+> * [x] Custom name  
+> * [ ] Private messages   
+> * [ ] Authentification  
+> * [ ] Image sending  
