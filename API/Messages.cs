@@ -20,7 +20,7 @@ namespace Messaging.Listening
                 databaseName: "ToDoList",
                 collectionName: "items",
                 ConnectionStringSetting = "DBConnectionString",
-                SqlQuery = "SELECT TOP 5 * FROM items ORDER BY items._ts DESC"
+                SqlQuery = "SELECT TOP 8 * FROM items ORDER BY items._ts"
             )]IEnumerable<dynamic> IDK,
             ILogger log)
         {

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             x:Class="MessengerApp.Pages.MessagesPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Label Text="Meno:"/>
+                <Entry HorizontalOptions="FillAndExpand" x:Name="meno"/>
+            </StackLayout>
+            <Frame BorderColor="Black" Margin="10" HeightRequest="360" VerticalOptions="FillAndExpand">
+                <ListView x:Name="MyListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding message}" FontSize="Small"/>
+                                    <Label Text="{Binding name}" FontSize="Micro"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Entry HorizontalOptions="FillAndExpand" x:Name="text"/>
+                <sh:Shadows Margin="5,10"  
+                                CornerRadius="10"
+                                VerticalOptions="CenterAndExpand">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="-10,-10"
+                                          Color="White" />
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="6, 6"
+                                          Color="#19000000" />
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button x:Name="Send" Text="Send" IsEnabled="True"/>
+                </sh:Shadows>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,7 +9,7 @@ namespace MessengerApp
         public App()
         {
             InitializeComponent();
-
+            Sharpnado.MaterialFrame.Initializer.Initialize(false, false);
             MainPage = new MainPage();
         }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Sharpnado.MaterialFrame.iOS;
+using Sharpnado.Presentation.Forms.iOS;
 using UIKit;
 
 namespace MessengerApp.iOS
@@ -23,6 +25,8 @@ namespace MessengerApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SharpnadoInitializer.Initialize();
+            iOSMaterialFrameRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

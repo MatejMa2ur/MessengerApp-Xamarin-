@@ -1,37 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MessengerApp.MainPage">
+             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             x:Class="MessengerApp.MainPage"
+             Background="#F0F0F3">
 
     <StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Back" IsEnabled="False" HorizontalOptions="StartAndExpand"/>
-            <Button Text="Home" IsEnabled="False"/>
-            <Button Text="Profile" IsEnabled="False" HorizontalOptions="EndAndExpand"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal" Padding="10">
-            <Label Text="Meno:"/>
-            <Entry HorizontalOptions="FillAndExpand" x:Name="meno"/>
-        </StackLayout>
-        <Frame BorderColor="Black" Margin="10" HeightRequest="360">
-            <ListView x:Name="MyListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout >
-                                <Label Text="{Binding message}" FontSize="Small"/>
-                                <Label Text="{Binding name}" FontSize="Micro"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Frame>
-        <StackLayout Orientation="Horizontal" Padding="10">
-            <Label Text=">"/>
-            <Entry HorizontalOptions="FillAndExpand" x:Name="text"/>
-        </StackLayout>
-        <Button x:Name="Send" Text="Send" IsEnabled="True"/>
+        <Label Text="Chatting App"
+               HorizontalOptions="Center"
+               Margin="0, 100,0,-70"
+               FontSize="Medium"/>
+        <sh:Shadows x:Name="CatShadows"  
+                    CornerRadius="10"
+                    VerticalOptions="CenterAndExpand">
+            <sh:Shadows.Shades>
+                <sh:ImmutableShades>
+                    <sh:Shade BlurRadius="10"
+                      Opacity="1"
+                      Offset="-10,-10"
+                      Color="White" />
+                    <sh:Shade BlurRadius="10"
+                      Opacity="1"
+                      Offset="6, 6"
+                      Color="#19000000" />
+                </sh:ImmutableShades>
+            </sh:Shadows.Shades>
+            <Frame WidthRequest="300"
+                   Padding="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   BackgroundColor="#F0F0F3"
+                   CornerRadius="10">
+                <StackLayout>
+                    <Entry Placeholder="Username" />
+                    <Entry Placeholder="Password" />
+                    <sh:Shadows Margin="20"  
+                                CornerRadius="10"
+                                VerticalOptions="CenterAndExpand">
+                        <sh:Shadows.Shades>
+                            <sh:ImmutableShades>
+                                <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="-10,-10"
+                                          Color="White" />
+                                <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="6, 6"
+                                          Color="#19000000" />
+                            </sh:ImmutableShades>
+                        </sh:Shadows.Shades>
+                        <Button x:Name="Login" 
+                                Text="Login"
+                                CornerRadius="10"
+                                BackgroundColor="#FFBA08"/>
+                    </sh:Shadows>
+                    <sh:Shadows Margin="0,0,0,10"  
+                                CornerRadius="10"
+                                VerticalOptions="CenterAndExpand">
+                        <sh:Shadows.Shades>
+                            <sh:ImmutableShades>
+                                <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="-10,-10"
+                                          Color="White" />
+                                <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="6, 6"
+                                          Color="#19000000" />
+                            </sh:ImmutableShades>
+                        </sh:Shadows.Shades>
+                        <Button Margin="60,0" Text="Register" CornerRadius="10" />
+                    </sh:Shadows>
+                </StackLayout>
+            </Frame>
+        </sh:Shadows>
     </StackLayout>
 
 
