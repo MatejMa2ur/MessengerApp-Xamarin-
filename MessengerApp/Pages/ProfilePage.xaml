@@ -1,12 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MessengerApp.Pages.ProfilePage">
+             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             x:Class="MessengerApp.Pages.ProfilePage"
+             BackgroundColor="#F0F0F3">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+        <StackLayout Padding="30">
+            <StackLayout Orientation="Vertical">
+                <Label Text="Profile" FontSize="Large"
                 HorizontalOptions="CenterAndExpand" />
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                        <Image Source="usersolid" WidthRequest="50" />
+                        <Label Text="{Binding username}" x:Name="Usename" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+                <sh:Shadows Margin="5,10"  
+                                CornerRadius="10"
+                                VerticalOptions="CenterAndExpand">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="-10,-10"
+                                          Color="White" />
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="6, 6"
+                                          Color="#19000000" />
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button Text="Logout" x:Name="logout" CornerRadius="10" BackgroundColor="#FFBA08"/>
+                </sh:Shadows>
+                <sh:Shadows Margin="5,10"  
+                                CornerRadius="10"
+                                VerticalOptions="CenterAndExpand">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="-10,-10"
+                                          Color="White" />
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="6, 6"
+                                          Color="#19000000" />
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Frame CornerRadius="10" BackgroundColor="#F0F0F3">
+                        <StackLayout Orientation="Vertical">
+                            <Entry Placeholder="Old Password"/>
+                            <Entry Placeholder="New Password"/>
+                            <Entry Placeholder="Confirm new password"/>
+                            <Button Text="Change Password" CornerRadius="10"/>
+                        </StackLayout>
+                    </Frame>
+                </sh:Shadows>
+                <sh:Shadows Margin="5,10"  
+                                CornerRadius="10"
+                                VerticalOptions="CenterAndExpand">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="-10,-10"
+                                          Color="White" />
+                            <sh:Shade BlurRadius="10"
+                                          Opacity="1"
+                                          Offset="6, 6"
+                                          Color="#19000000" />
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button Text="Delete Account" CornerRadius="10" BackgroundColor="#DB5461"/>
+                </sh:Shadows>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

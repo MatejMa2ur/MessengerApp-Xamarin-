@@ -9,10 +9,12 @@
             android:TabbedPage.BarSelectedItemColor="#FFBA08">
     <TabbedPage.Children>
         <local:MessagesPage Title="Messages"
-                            IconImageSource="">
+                            IconImageSource="envelope.png">
+                            
+            
         </local:MessagesPage>
         <local:ProfilePage Title="Profile"
-                           IconImageSource="">
+                           IconImageSource="usersolid.png">
 
         </local:ProfilePage>
     </TabbedPage.Children>

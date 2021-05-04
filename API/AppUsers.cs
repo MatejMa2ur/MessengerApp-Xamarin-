@@ -11,28 +11,20 @@ using System.Collections.Generic;
 
 namespace Messaging.Listening
 {
-    public static class Messages
+    public static class AppUsers
     {
-        [FunctionName("Messages")]
+        [FunctionName("AppUsers")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoList",
-                collectionName: "items",
+                collectionName: "users",
                 ConnectionStringSetting = "DBConnectionString",
-                SqlQuery = "SELECT TOP 8 * FROM items ORDER BY items._ts DESC"
+                SqlQuery = "SELECT * FROM users"
             )]IEnumerable<dynamic> IDK,
             ILogger log)
         {
-            log.LogInformation("Hello World this is Matej!");
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-
-            log.LogInformation(requestBody);
-
             return new OkObjectResult(JsonConvert.SerializeObject(IDK));
-            //return new OkObjectResult($"Hello {output}");
         }
     }
 }

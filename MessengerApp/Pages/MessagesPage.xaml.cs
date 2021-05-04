@@ -19,31 +19,39 @@ namespace MessengerApp.Pages
         public MessagesPage()
         {
             InitializeComponent();
+            
             Send.Clicked += (sender, e) =>
             {
                 string url = $"https://xamarinfinal.azurewebsites.net/api/SendMessage?name={meno.Text}&message={text.Text}";
                 _client.PostAsync(url,null);
                 MyListView.ItemsSource = null;
-                OnAppearing();
+                LoadMessages();
                 text.Text = null;
             };
             
 
             Device.StartTimer(TimeSpan.FromSeconds(5), () =>
             {
-                OnAppearing();
+                LoadMessages();
                 return true;
             });
         }
 
         protected override async void OnAppearing()
         {
+            LoadMessages();
+            var b = App.Database.GetPeopleAsync().Result;
+            meno.Text = b.FirstOrDefault().username;
+            base.OnAppearing();
+        }
+
+        protected async void LoadMessages()
+        {
             string content = await _client.GetStringAsync(Url);
             IEnumerable<Message> Messages = JsonConvert.DeserializeObject<IEnumerable<Message>>(content);
+
             //_messages = new IEnumerable<Message>(Messages);
             MyListView.ItemsSource = Messages;
-
-            base.OnAppearing();
         }
     }
 }

@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
-             x:Class="MessengerApp.Pages.MessagesPage">
+             x:Class="MessengerApp.Pages.MessagesPage"
+             BackgroundColor="#F0F0F3">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal" Padding="10">
-                <Label Text="Meno:"/>
-                <Entry HorizontalOptions="FillAndExpand" x:Name="meno"/>
+                <Label x:Name="meno"/>
             </StackLayout>
-            <Frame BorderColor="Black" Margin="10" HeightRequest="360" VerticalOptions="FillAndExpand">
+            <Frame BorderColor="Black" Margin="10" HeightRequest="360" VerticalOptions="FillAndExpand" CornerRadius="10">
                 <ListView x:Name="MyListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>

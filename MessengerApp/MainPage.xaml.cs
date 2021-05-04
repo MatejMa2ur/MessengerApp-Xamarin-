@@ -16,15 +16,50 @@ namespace MessengerApp
 {
     public partial class MainPage : ContentPage
     {
+        
+        public string username { get; set; }
+        public string password { get; set; }
+        private const string Url = "https://xamarinfinal.azurewebsites.net/api/isreal";
+        private readonly HttpClient _client = new HttpClient();
 
         public MainPage()
         {
             InitializeComponent();
-            
+            if (App.Database.GetPeopleAsync().Result.Count != 0)
+                App.Current.MainPage = new Pages.NavigationPage();
+            BindingContext = this;
             Login.Clicked += (sender, e) =>
             {
-                App.Current.MainPage = new Pages.NavigationPage();
+                var person = new User();
+                person.id = Guid.NewGuid().ToString();
+                person.username = username;
+                person.password = password;
+                bool isReal = JsonConvert.DeserializeObject<bool>(_client.GetStringAsync(Url + $"?name={username}&pass={password}").Result);
+                if (isReal)
+                {
+                    App.Database.SavePersonAsync(person);
+                    App.Current.MainPage = new Pages.NavigationPage();
+                }
+                else
+                {
+                    pa.Text = "";
+                    DisplayAlert("Warning", "Empty or not correct data", "Try Again");
+                }
+                
             };
         }
+        override protected void OnAppearing()
+        {
+            if(App.Database.GetPeopleAsync().Result.Count != 0)
+            {
+                App.Current.MainPage = new Pages.NavigationPage();
+            }
+        }
+
+        private async void Register_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new RegisterPage();
+        }
+
     }
 }

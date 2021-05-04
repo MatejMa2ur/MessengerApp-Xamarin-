@@ -2,79 +2,80 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
-             x:Class="MessengerApp.MainPage"
+             x:Class="MessengerApp.RegisterPage"
              Background="#F0F0F3">
-    <StackLayout>
-        <Label Text="Chatting App"
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Register" x:Name="labl"
                HorizontalOptions="Center"
                Margin="0, 100,0,-70"
                FontSize="Medium"/>
-        <sh:Shadows x:Name="CatShadows"  
+            <sh:Shadows x:Name="CatShadows"  
                     CornerRadius="10"
                     VerticalOptions="CenterAndExpand">
-            <sh:Shadows.Shades>
-                <sh:ImmutableShades>
-                    <sh:Shade BlurRadius="10"
+                <sh:Shadows.Shades>
+                    <sh:ImmutableShades>
+                        <sh:Shade BlurRadius="10"
                       Opacity="1"
                       Offset="-10,-10"
                       Color="White" />
-                    <sh:Shade BlurRadius="10"
+                        <sh:Shade BlurRadius="10"
                       Opacity="1"
                       Offset="6, 6"
                       Color="#19000000" />
-                </sh:ImmutableShades>
-            </sh:Shadows.Shades>
-            <Frame WidthRequest="300"
+                    </sh:ImmutableShades>
+                </sh:Shadows.Shades>
+                <Frame WidthRequest="300"
                    Padding="20"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    BackgroundColor="#F0F0F3"
                    CornerRadius="10">
-                <StackLayout>
-                    <Entry Placeholder="Username" Text="{Binding username}" x:Name="us"/>
-                    <Entry Placeholder="Password" Text="{Binding password}" x:Name="pa" IsPassword="True" />
-                    <sh:Shadows Margin="20"  
+                    <StackLayout>
+                        <Entry Placeholder="Username" x:Name="usr"/>
+                        <Entry Placeholder="Password" IsPassword="True" x:Name="pas" />
+                        <Entry Placeholder="Confirm Password" IsPassword="True" x:Name="sp" />
+                        <sh:Shadows Margin="20"  
                                 CornerRadius="10"
                                 VerticalOptions="CenterAndExpand">
-                        <sh:Shadows.Shades>
-                            <sh:ImmutableShades>
-                                <sh:Shade BlurRadius="10"
+                            <sh:Shadows.Shades>
+                                <sh:ImmutableShades>
+                                    <sh:Shade BlurRadius="10"
                                           Opacity="1"
                                           Offset="-10,-10"
                                           Color="White" />
-                                <sh:Shade BlurRadius="10"
+                                    <sh:Shade BlurRadius="10"
                                           Opacity="1"
                                           Offset="6, 6"
                                           Color="#19000000" />
-                            </sh:ImmutableShades>
-                        </sh:Shadows.Shades>
-                        <Button x:Name="Login" 
-                                Text="Login"
+                                </sh:ImmutableShades>
+                            </sh:Shadows.Shades>
+                            <Button x:Name="Register" 
+                                Text="Register"
                                 CornerRadius="10"
                                 BackgroundColor="#FFBA08" FontSize="Large"/>
-                    </sh:Shadows>
-                    <sh:Shadows Margin="0,0,0,10"  
+                        </sh:Shadows>
+                        <sh:Shadows Margin="0,0,0,10"  
                                 CornerRadius="10"
                                 VerticalOptions="CenterAndExpand">
-                        <sh:Shadows.Shades>
-                            <sh:ImmutableShades>
-                                <sh:Shade BlurRadius="10"
+                            <sh:Shadows.Shades>
+                                <sh:ImmutableShades>
+                                    <sh:Shade BlurRadius="10"
                                           Opacity="1"
                                           Offset="-10,-10"
                                           Color="White" />
-                                <sh:Shade BlurRadius="10"
+                                    <sh:Shade BlurRadius="10"
                                           Opacity="1"
                                           Offset="6, 6"
                                           Color="#19000000" />
-                            </sh:ImmutableShades>
-                        </sh:Shadows.Shades>
-                        <Button Margin="80,0" Text="Register" Clicked="Register_Clicked"
+                                </sh:ImmutableShades>
+                            </sh:Shadows.Shades>
+                            <Button Margin="80,0" Text="Login" x:Name="Login" Clicked="Login_Clicked"
                                 CornerRadius="10" FontSize="Small"/>
-                    </sh:Shadows>
-                </StackLayout>
-            </Frame>
-        </sh:Shadows>
-    </StackLayout>
-
-
+                        </sh:Shadows>
+                    </StackLayout>
+                </Frame>
+            </sh:Shadows>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
