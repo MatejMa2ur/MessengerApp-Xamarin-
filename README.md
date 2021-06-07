@@ -7,5 +7,5 @@ This app features are:
 > * [x] Custom messages  
 > * [x] Custom name  
 > * [ ] Private messages   
-> * [ ] Authentification  
+> * [x] Authentification  
 > * [ ] Image sending  
